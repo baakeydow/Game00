@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 	public Transform currentPlayer;
 	public PlayerMovement playerMovement;
 	public RealJumpFeel jump;
-	public GameObject levelCompleteGameObject;
+	public GameObject mainAppMessages;
 	private GameObject anim;
 
 	public float restartLevelDelay = 2f;
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 		}
 	}
 	public void LevelComplete() {
+		isGameOn = false;
 		this.SetMainCanvasDisplay(true);
 		Invoke("NextLevet", nextLevelDelay);
 	}
@@ -37,17 +38,22 @@ public class GameManager : MonoBehaviour
 		}
 	}
 	public void RestartLevel() {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
 	}
 	private void NextLevet() {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+		if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) {
+			SceneManager.LoadSceneAsync(nextSceneIndex);	
+		} else {
+			SceneManager.LoadSceneAsync(0);
+		}
 	}
 	private void SetMainCanvasDisplay(bool display) {
 		anim.SetActive(display);
 		anim.GetComponent<Animator>().enabled = display;
-		levelCompleteGameObject.GetComponent<Image>().enabled = display;
-		levelCompleteGameObject.GetComponent<Image>().transform.GetChild(0).gameObject.GetComponent<Text>().enabled = display;
-		levelCompleteGameObject.GetComponent<Image>().transform.GetChild(1).gameObject.GetComponent<Text>().enabled = display;
+		mainAppMessages.GetComponent<Image>().enabled = display;
+		mainAppMessages.GetComponent<Image>().transform.GetChild(0).gameObject.GetComponent<Text>().enabled = display;
+		mainAppMessages.GetComponent<Image>().transform.GetChild(1).gameObject.GetComponent<Text>().enabled = display;
 	}
 	private void FindNeededObjects() {
 		GameObject obj = GameObject.FindWithTag("Player") ?
@@ -57,7 +63,7 @@ public class GameManager : MonoBehaviour
 		currentPlayer = obj ? obj.transform : null;
 		playerMovement = FindObjectOfType<PlayerMovement>();
 		jump = FindObjectOfType<RealJumpFeel>();
-		levelCompleteGameObject = GameObject.FindWithTag("LevelWonDisplay");
-		anim = GameObject.Find("LevelComplete");
+		mainAppMessages = GameObject.FindWithTag("LevelWonDisplay");
+		anim = GameObject.Find("MainGameMessages");
 	}
 }

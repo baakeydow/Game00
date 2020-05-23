@@ -38,9 +38,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		this.MoveCurrentRigidBody(forwardKeyPress, backwardKeyPress, leftKeyPress, rightKeyPress);
 	}
-
-	private void handleSpeed()
-	{
+	private void handleSpeed() {
 		if (Input.GetKey(KeyCode.LeftShift)) {
 			forwardForce += forwardForce * 0.01f;
 			sidewaysForce += sidewaysForce * 0.01f;
@@ -66,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 		if (rightKeyPress) {
 			rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
 		}
-		if (rb.position.y < -1f) {
+		if (rb.position.y < -1f && gameManager.isGameOn) {
 			gameManager.GameOver();
 		}
 	}

@@ -109,7 +109,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6498603396710370679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd5063b79180413c89c261e1e3b24dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4adc5a776c1f342808086af868e8b62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+--- !u!114 &6498603396710370638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498603396710370679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b113c29b4d4c4978a51620022fa30a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
@@ -120,24 +133,6 @@ MonoBehaviour:
   forwardForce_init: 0
   sidewaysForce_init: 0
   backwardForce_init: 0
---- !u!114 &6498603396710370638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6498603396710370679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe2947282a464757a092b028218ee19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  allowedJumpTimes: 2
-  jumpSpeed: 800
-  fallSpeed: 2.5
-  maxJumpHeight: 3
-  simpleJumpSpeed: 4
 --- !u!114 &6498603396710370639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,10 +142,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6498603396710370679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 218a6b79f6fca4e09991d9844a65b57b, type: 3}
+  m_Script: {fileID: 11500000, guid: 21971fe2bc3834cbdaf5a53d16735444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  rb: {fileID: 0}
+  allowedJumpTimes: 2
+  jumpSpeed: 800
+  fallSpeed: 2.5
+  maxJumpHeight: 3
+  simpleJumpSpeed: 4
 --- !u!135 &6498603396710370673
 SphereCollider:
   m_ObjectHideFlags: 0

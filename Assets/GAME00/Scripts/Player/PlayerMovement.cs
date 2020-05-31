@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
 	public Rigidbody rb;
@@ -7,9 +8,9 @@ public class PlayerMovement : MonoBehaviour
 	public float forwardForce = 2000f;
 	public float sidewaysForce = 20f;
 	public float backwardForce = 1000f;
-	public float forwardForce_init;
-	public float sidewaysForce_init;
-	public float backwardForce_init;
+	private float forwardForce_init;
+	private float sidewaysForce_init;
+	private float backwardForce_init;
 
 	private bool forwardKeyPress = false;
 	private bool backwardKeyPress = false;

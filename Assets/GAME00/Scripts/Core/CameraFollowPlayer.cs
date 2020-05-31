@@ -2,18 +2,19 @@
 
 public class CameraFollowPlayer : MonoBehaviour
 {
-	public Transform objectToFollow;
+	public GameObject objectToFollow;
+	public float mouseSensitivity = 100f;
+
 	public Vector3 offset = new Vector3(0, 1, -5);
 
 	void Awake()
 	{
 		this.FindCurrentObjectToFollow();
 	}
-
 	void Update()
 	{
 		if (objectToFollow) {
-			this.transform.position = objectToFollow.position + offset;
+			this.transform.position = objectToFollow.transform.position + offset;
 		} else {
 			Debug.LogError("Current Player not Found !");
 		}
@@ -25,6 +26,6 @@ public class CameraFollowPlayer : MonoBehaviour
 			GameObject.FindWithTag("Player")
 		:
 			GameObject.Find("CurrentPlayer");
-		objectToFollow = obj ? obj.transform : null;
+		objectToFollow = obj ? obj : null;
 	}
 }

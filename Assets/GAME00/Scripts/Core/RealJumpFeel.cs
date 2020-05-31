@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class RealJumpFeel : MonoBehaviour 
 {
 	public Rigidbody rb;
@@ -51,7 +52,7 @@ public class RealJumpFeel : MonoBehaviour
 		}
 	}
 	private void resetJumpNbr(Collision collisionInfo) {
-		if (collisionInfo.collider.name == "Ground") {
+		if (collisionInfo.collider.tag == "Ground") {
 			jumpNb = 0;
 		}
 	}

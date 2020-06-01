@@ -5,7 +5,7 @@ public class RealJumpFeel : MonoBehaviour
 {
 	public Rigidbody rb;
 	public int allowedJumpTimes = 2;
-	public float jumpSpeed = 800f;
+	public float jumpSpeed = 500f;
 	public float fallSpeed = 2.5f;
 	public float maxJumpHeight = 3f;	
 	public float simpleJumpSpeed = 4f;
@@ -19,9 +19,6 @@ public class RealJumpFeel : MonoBehaviour
 	void Update()
 	{
 		this.setJumpState();
-	} 
-	void FixedUpdate()
-	{
 		this.RigidBodyVelocityJumpControl();
 	}
 	void OnCollisionEnter(Collision collisionInfo)
@@ -32,6 +29,7 @@ public class RealJumpFeel : MonoBehaviour
 		if (isJumpKeyPress &&
 				jumpNb <= allowedJumpTimes &&
 				rb.position.y < maxJumpHeight) {
+			Debug.Log("HERE");
 			float newY = jumpSpeed * Time.deltaTime;
 			rb.velocity = new Vector3(rb.velocity.x, newY, rb.velocity.z);
 		}
@@ -42,13 +40,11 @@ public class RealJumpFeel : MonoBehaviour
 		}
 	}
 	private void setJumpState() {
-		if (Input.GetKeyDown(KeyCode.Space)) {
+		if (Input.GetKey(KeyCode.Space) || Input.GetButton("Jump")) {
 			isJumpKeyPress = true;
 			jumpNb +=  1;
-			rb.drag = 0; // air resistance
 		} else {
 			isJumpKeyPress = false;
-			rb.drag = 1; // air resistance
 		}
 	}
 	private void resetJumpNbr(Collision collisionInfo) {

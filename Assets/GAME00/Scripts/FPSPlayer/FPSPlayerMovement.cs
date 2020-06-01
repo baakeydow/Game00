@@ -29,7 +29,7 @@ public class FPSPlayerMovement : MonoBehaviour
 	}
 	private void FixedUpdate()
 	{
-		if (playerBody) this.MovePlayer();
+		this.MovePlayer();
 	}
 	private void MovePlayer() {
 		if (playerBody.isGrounded)

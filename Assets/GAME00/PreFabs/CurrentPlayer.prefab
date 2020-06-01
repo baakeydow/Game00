@@ -130,9 +130,6 @@ MonoBehaviour:
   forwardForce: 2000
   sidewaysForce: 20
   backwardForce: 1000
-  forwardForce_init: 0
-  sidewaysForce_init: 0
-  backwardForce_init: 0
 --- !u!114 &6498603396710370639
 MonoBehaviour:
   m_ObjectHideFlags: 0

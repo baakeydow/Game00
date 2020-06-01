@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class MouseLook : MonoBehaviour
 {
 	public CharacterController playerBody;
